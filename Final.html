@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3);
+    font-family: Arial, sans-serif;
+  }
+
+  .box {
+    background: white;
+    width: 90%;
+    max-width: 360px;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+  }
+
+  img {
+    width: 150px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    color: #e91e63;
+    margin-bottom: 20px;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 12px 22px;
+    transition: all 0.3s ease;
+  }
+
+  #yes {
+    background: #4caf50;
+    color: white;
+  }
+
+  #no {
+    background: #f44336;
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="box" id="box">
+  <img src="start.gif" >
+  <h2 id="question">Madhu, will you be my Valentine? 💖</h2>
+
+  <div class="btns">
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 😒</button>
+  </div>
+</div>
+
+<script>
+  const questions = [
+    "Soch lo ache se 😏",
+    "Ek aur baar soch lo 🥺",
+    "Itna bhi bura nahi hoon yaar 😭",
+    "Maan v Jao HONEY😢",
+    "Sponge Khila dunga Yaar😋",
+    "Achha favorite Gift v dila Dunga yaar🥳",
+    "Ghumne v le Jaunga Ab to maan jao💃",
+    "Please maan jao na 💔",
+    "Last chance Madhu 😢",
+    "Ab Yes hi bacha hai😎 "
+  ];
+
+  let count = 0;
+  let yesSize = 16;
+
+  const yesBtn = document.getElementById("yes");
+  const noBtn = document.getElementById("no");
+  const ques = document.getElementById("question");
+  const box = document.getElementById("box");
+
+  noBtn.addEventListener("click", () => {
+    if (count < questions.length) {
+      ques.innerText = questions[count];
+      count++;
+      yesSize += 6;
+      yesBtn.style.fontSize = yesSize + "px";
+      yesBtn.style.padding = (12 + count*2) + "px " + (22 + count*4) + "px";
+    }
+  });
+
+  yesBtn.addEventListener("click", () => {
+    box.innerHTML = `
+      <img src="thanks.gif" width="180">
+      <h2>Yayyy! 💕<br>Love you Honey 😘😘😘😘</h2>
+    `;
+  });
+</script>
+
+</body>
+</html>
